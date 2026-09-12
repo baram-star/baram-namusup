@@ -1,0 +1,278 @@
+/* ══════════════════════════════════════════════
+   바람나무숲 홈페이지 — 공통 스타일
+   디자인 시스템: 기획서 §6 (앱과 동일 토큰 + 4가치색)
+   ══════════════════════════════════════════════ */
+
+:root {
+  --teal: #00938A;
+  --mint: #00C4B4;
+  --teal-d: #006B6B;
+  --navy: #1a2535;
+  --sub: #5a6e6e;
+  --bg: #ffffff;
+  --bg-soft: #f8f9fa;
+  --border: #e3ebe9;
+  --gold: #E8A020;
+  /* 가치 4색 — 붓글씨 원본 색으로 추후 교체 */
+  --sum: #7CB93A;   /* 숨 · 연두 */
+  --mok: #2B6CB0;   /* 몫 · 파랑 */
+  --sam: #C0392B;   /* 삶 · 빨강 */
+  --kkum: #6B46C1;  /* 꿈 · 보라 */
+  --sum-l: #f2f8e9;
+  --mok-l: #ebf2fa;
+  --sam-l: #faeeec;
+  --kkum-l: #f1edfa;
+  --teal-l: #e6f7f6;
+  --radius: 14px;
+  --shadow: 0 2px 16px rgba(0,120,110,.08);
+  --maxw: 1080px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--navy);
+  background: var(--bg);
+  line-height: 1.7;
+  font-weight: 400;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-weight: 700; line-height: 1.45; }
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+/* ── 헤더 ── */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 0 20px;
+  display: flex; align-items: center; gap: 24px; height: 64px;
+}
+.brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.brand img { width: 34px; height: 34px; }
+.brand-name { font-size: 1.08rem; font-weight: 800; color: var(--teal-d); letter-spacing: .02em; }
+.gnb { display: flex; gap: 4px; margin-left: auto; }
+.gnb a {
+  padding: 8px 13px; font-size: .92rem; font-weight: 500; color: var(--navy);
+  border-radius: 8px; transition: background .15s, color .15s;
+}
+.gnb a:hover { background: var(--teal-l); color: var(--teal-d); }
+.gnb a.active { color: var(--teal-d); font-weight: 700; }
+.btn-app {
+  flex-shrink: 0; padding: 9px 18px; border-radius: 10px;
+  background: var(--teal); color: #fff; font-size: .88rem; font-weight: 600;
+  transition: background .15s;
+}
+.btn-app:hover { background: var(--teal-d); }
+.menu-toggle {
+  display: none; margin-left: auto; background: none; border: none; cursor: pointer;
+  padding: 8px; color: var(--navy);
+}
+
+/* ── 히어로 ── */
+.hero {
+  background:
+    radial-gradient(ellipse 90% 70% at 70% 10%, rgba(0,196,180,.14), transparent),
+    linear-gradient(180deg, #f2faf9 0%, #ffffff 100%);
+  padding: 96px 0 88px;
+  text-align: center;
+}
+.hero-slogan { font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 800; color: var(--navy); letter-spacing: .01em; }
+.hero-slogan .accent { color: var(--teal); }
+.hero-sub { margin-top: 18px; font-size: clamp(.98rem, 2vw, 1.14rem); color: var(--sub); }
+.hero-actions { margin-top: 36px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 13px 28px; border-radius: 12px;
+  font-size: .96rem; font-weight: 600; transition: transform .15s, box-shadow .15s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn-primary { background: var(--teal); color: #fff; }
+.btn-outline { background: #fff; color: var(--teal-d); border: 1.5px solid var(--teal); }
+
+/* ── 섹션 공통 ── */
+.section { padding: 72px 0; }
+.section.soft { background: var(--bg-soft); }
+.sec-label { font-size: .82rem; font-weight: 700; letter-spacing: .14em; color: var(--teal); text-transform: uppercase; }
+.sec-title { margin-top: 8px; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; }
+.sec-desc { margin-top: 12px; color: var(--sub); max-width: 640px; }
+.sec-head { margin-bottom: 36px; }
+.sec-head.center { text-align: center; }
+.sec-head.center .sec-desc { margin-left: auto; margin-right: auto; }
+
+/* ── 카드 공통 ── */
+.card {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 28px;
+  transition: transform .18s, box-shadow .18s;
+}
+a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,110,.14); }
+
+/* ── 갈림길 2 카드 ── */
+.gate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.gate-card { border-top: 4px solid var(--teal); }
+.gate-card.parent { border-top-color: var(--mok); }
+.gate-card.youth { border-top-color: var(--sam); }
+.gate-eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .1em; color: var(--sub); }
+.gate-title { margin-top: 6px; font-size: 1.28rem; font-weight: 800; }
+.gate-desc { margin-top: 10px; font-size: .92rem; color: var(--sub); }
+.gate-links { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+.gate-chip {
+  font-size: .82rem; font-weight: 600; padding: 6px 14px; border-radius: 20px;
+  background: var(--teal-l); color: var(--teal-d);
+}
+.gate-card.parent .gate-chip { background: var(--mok-l); color: var(--mok); }
+.gate-card.youth .gate-chip { background: var(--sam-l); color: var(--sam); }
+
+/* ── 가치 4 카드 (숨·몫·삶·꿈) ── */
+.values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.value-card { text-align: center; padding: 34px 20px; }
+.value-glyph {
+  /* 붓글씨 원본 이미지로 교체 예정 — 임시 타이포 표현 */
+  font-size: 3.2rem; font-weight: 900; line-height: 1.2;
+  font-family: 'Noto Serif KR', 'Noto Sans KR', serif;
+}
+.value-card.sum  .value-glyph { color: var(--sum); }
+.value-card.mok  .value-glyph { color: var(--mok); }
+.value-card.sam  .value-glyph { color: var(--sam); }
+.value-card.kkum .value-glyph { color: var(--kkum); }
+.value-verb { margin-top: 6px; font-size: .95rem; font-weight: 700; color: var(--sub); }
+.value-text { margin-top: 12px; font-size: .85rem; color: var(--sub); text-align: left; }
+
+/* ── 프로그램 3 카드 ── */
+.prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.prog-card .prog-tag {
+  display: inline-block; font-size: .75rem; font-weight: 700; padding: 4px 12px;
+  border-radius: 20px; margin-bottom: 14px;
+}
+.prog-card.daum    .prog-tag { background: var(--mok-l); color: var(--mok); }
+.prog-card.academy .prog-tag { background: var(--sam-l); color: var(--sam); }
+.prog-card.parents .prog-tag { background: var(--sum-l); color: var(--sum); }
+.prog-name { font-size: 1.22rem; font-weight: 800; }
+.prog-desc { margin-top: 10px; font-size: .9rem; color: var(--sub); }
+.prog-meta { margin-top: 16px; font-size: .82rem; color: var(--sub); display: grid; gap: 4px; }
+.prog-meta span::before { content: '· '; color: var(--teal); font-weight: 800; }
+.prog-more { margin-top: 18px; font-size: .88rem; font-weight: 700; color: var(--teal-d); }
+
+/* ── 최근 글 ── */
+.recent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.recent-col-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.recent-col-title .more { margin-left: auto; font-size: .8rem; font-weight: 600; color: var(--teal); }
+.notice-item {
+  display: flex; align-items: baseline; gap: 10px; padding: 11px 4px;
+  border-bottom: 1px solid var(--border); font-size: .9rem;
+}
+.notice-item .date { margin-left: auto; flex-shrink: 0; font-size: .78rem; color: var(--sub); }
+.post-card { display: block; padding: 16px 4px; border-bottom: 1px solid var(--border); }
+.post-cat { font-size: .74rem; font-weight: 700; color: var(--kkum); }
+.post-title { margin-top: 3px; font-size: .95rem; font-weight: 600; }
+.post-date { margin-top: 3px; font-size: .77rem; color: var(--sub); }
+.empty-msg { padding: 22px 4px; font-size: .86rem; color: var(--sub); }
+
+/* ── 개원 배너 ── */
+.open-banner {
+  background: linear-gradient(120deg, var(--teal-d), var(--teal));
+  border-radius: var(--radius); color: #fff; padding: 44px 36px;
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.open-banner h3 { font-size: 1.4rem; font-weight: 800; }
+.open-banner p { margin-top: 6px; font-size: .92rem; opacity: .92; }
+.open-banner .btn { margin-left: auto; background: #fff; color: var(--teal-d); }
+
+/* ── 서브페이지 히어로 ── */
+.page-hero { padding: 64px 0 48px; text-align: center; }
+.page-hero .page-tag {
+  display: inline-block; font-size: .8rem; font-weight: 700; padding: 5px 16px; border-radius: 20px;
+  background: var(--teal-l); color: var(--teal-d);
+}
+.page-hero h1 { margin-top: 14px; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; }
+.page-hero .lead { margin-top: 12px; color: var(--sub); max-width: 620px; margin-left: auto; margin-right: auto; }
+/* 페이지별 포인트색 */
+.theme-mok  .page-tag { background: var(--mok-l);  color: var(--mok); }
+.theme-sam  .page-tag { background: var(--sam-l);  color: var(--sam); }
+.theme-sum  .page-tag { background: var(--sum-l);  color: var(--sum); }
+.theme-kkum .page-tag { background: var(--kkum-l); color: var(--kkum); }
+
+/* ── 정보 표 (다움공부 등) ── */
+.info-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.info-table th, .info-table td { padding: 13px 16px; border-bottom: 1px solid var(--border); text-align: left; }
+.info-table th { width: 130px; color: var(--sub); font-weight: 600; background: var(--bg-soft); }
+
+/* ── 가치 풀페이지 섹션 (바람나무숲은?) ── */
+.value-full { padding: 88px 0; }
+.value-full .inner { max-width: 720px; margin: 0 auto; padding: 0 20px; text-align: center; }
+.value-full .value-glyph { font-size: 4.6rem; }
+.value-full .value-verb { font-size: 1.1rem; }
+.value-full .value-body { margin-top: 22px; font-size: 1.02rem; color: var(--navy); text-align: center; }
+.value-full.sum  { background: var(--sum-l); }
+.value-full.mok  { background: var(--mok-l); }
+.value-full.sam  { background: var(--sam-l); }
+.value-full.kkum { background: var(--kkum-l); }
+.value-full.sum  .value-glyph { color: var(--sum); }
+.value-full.mok  .value-glyph { color: var(--mok); }
+.value-full.sam  .value-glyph { color: var(--sam); }
+.value-full.kkum .value-glyph { color: var(--kkum); }
+
+/* ── 목록(일정·자료) ── */
+.link-list { display: grid; gap: 0; }
+.link-item {
+  display: flex; align-items: center; gap: 14px; padding: 15px 6px;
+  border-bottom: 1px solid var(--border);
+}
+.link-icon {
+  width: 40px; height: 40px; border-radius: 10px; background: var(--teal-l);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+}
+.link-name { font-size: .93rem; font-weight: 600; }
+.link-sub { font-size: .8rem; color: var(--sub); }
+.link-arrow { margin-left: auto; color: #ccc; }
+
+/* ── 준비 중 표시 ── */
+.placeholder {
+  border: 1.5px dashed var(--border); border-radius: var(--radius);
+  padding: 28px; text-align: center; color: var(--sub); font-size: .88rem;
+  background: var(--bg-soft);
+}
+
+/* ── 푸터 ── */
+.site-footer { margin-top: 40px; background: var(--navy); color: #cfd8d7; padding: 48px 0 40px; font-size: .86rem; }
+.footer-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; display: flex; gap: 32px; flex-wrap: wrap; }
+.footer-brand { font-size: 1rem; font-weight: 800; color: #fff; }
+.footer-info { line-height: 2; }
+.footer-links { margin-left: auto; display: flex; gap: 16px; align-items: flex-start; }
+.footer-links a { color: var(--mint); font-weight: 600; }
+
+/* ── 반응형 ── */
+@media (max-width: 900px) {
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .prog-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .gnb {
+    display: none; position: absolute; top: 64px; left: 0; right: 0;
+    background: #fff; border-bottom: 1px solid var(--border);
+    flex-direction: column; padding: 10px 16px 16px; gap: 2px;
+  }
+  .gnb.open { display: flex; }
+  .gnb a { padding: 12px 10px; font-size: 1rem; }
+  .menu-toggle { display: block; }
+  .btn-app { display: none; }
+  .gnb .btn-app-mobile {
+    display: block; margin-top: 8px; text-align: center; background: var(--teal);
+    color: #fff; border-radius: 10px; font-weight: 700;
+  }
+  .gate-grid, .recent-grid { grid-template-columns: 1fr; }
+  .hero { padding: 68px 0 60px; }
+  .section { padding: 52px 0; }
+  .open-banner { padding: 32px 24px; }
+  .open-banner .btn { margin-left: 0; }
+  .footer-links { margin-left: 0; }
+}
+@media (max-width: 460px) {
+  .values-grid { grid-template-columns: 1fr; }
+}
