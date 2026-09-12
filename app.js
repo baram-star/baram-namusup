@@ -7,8 +7,8 @@
 
 const SITE = {
   appUrl: 'https://baram-connect.vercel.app',
-  supabaseUrl: 'https://rdkuqqrkxwqakllncyaq.supabase.co',
-  supabaseKey: 'sb_publishable_xlzcfl2PWvEjGY_SIb2O2Q_GJhtkhHy',
+  supabaseUrl: 'https://fgwuzbdopprzlkiyjhkm.supabase.co',
+  supabaseKey: 'sb_publishable_P9Nu1-xc7cdMDJ55MNHDUA_GHAVHdZd',
   scriptUrl: 'https://script.google.com/macros/s/AKfycbxamYg-5tRQ435kAoWkStSpCOQ0l9Vch-s-1QoU-CoyhBr64p2dtGIX_-lKhZDLc_qF/exec',
 };
 
