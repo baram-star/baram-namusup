@@ -23,6 +23,12 @@
   --sam-l: #faeeec;
   --kkum-l: #f1edfa;
   --teal-l: #e6f7f6;
+  /* 자주국어 — 자주국어 섹션(/jaju/*, 홈 배너, 헤더 CTA)에서만 사용
+     ※ 자주국어 디자인 시스템 파일이 저장소에 들어오면 아래 값을 그 파일 값으로 교체 */
+  --jaju: #7b2253;          /* 자주 (주색) */
+  --jaju-dark: #5e1940;     /* 자주 · 눌림/hover */
+  --jaju-light: #f6eaf0;    /* 연자주 (바탕·칩) */
+  --jaju-accent: #2f5d50;   /* 초록 펜 (펜 점·고리·코멘트) */
   --radius: 14px;
   --shadow: 0 2px 16px rgba(0,120,110,.08);
   --maxw: 1080px;
@@ -150,7 +156,9 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
   display: inline-block; font-size: .75rem; font-weight: 700; padding: 4px 12px;
   border-radius: 20px; margin-bottom: 14px;
 }
-.prog-card.daum    .prog-tag { background: var(--mok-l); color: var(--mok); }
+.prog-card.jaju    .prog-tag { background: var(--jaju-light); color: var(--jaju); }
+.prog-card.jaju { border-top: 4px solid var(--jaju); }
+.prog-card.jaju .prog-more { color: var(--jaju); }
 .prog-card.academy .prog-tag { background: var(--sam-l); color: var(--sam); }
 .prog-card.parents .prog-tag { background: var(--sum-l); color: var(--sum); }
 .prog-name { font-size: 1.22rem; font-weight: 800; }
@@ -198,7 +206,7 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
 .theme-sum  .page-tag { background: var(--sum-l);  color: var(--sum); }
 .theme-kkum .page-tag { background: var(--kkum-l); color: var(--kkum); }
 
-/* ── 정보 표 (다움공부 등) ── */
+/* ── 정보 표 (자주국어 등) ── */
 .info-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
 .info-table th, .info-table td { padding: 13px 16px; border-bottom: 1px solid var(--border); text-align: left; }
 .info-table th { width: 130px; color: var(--sub); font-weight: 600; background: var(--bg-soft); }
@@ -247,12 +255,134 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
 .footer-links { margin-left: auto; display: flex; gap: 16px; align-items: flex-start; }
 .footer-links a { color: var(--mint); font-weight: 600; }
 
+/* ══════════════════════════════════════════════
+   자주국어 (교습소 브랜드 존)
+   ══════════════════════════════════════════════ */
+
+/* 헤더 CTA — 모든 페이지 공통, 자주색 */
+.btn-app.btn-jaju-cta { background: var(--jaju); }
+.btn-app.btn-jaju-cta:hover { background: var(--jaju-dark); }
+.footer-sub { margin-top: 4px; font-size: .8rem; color: #9fb0ae; }
+.footer-sub a { color: #e7c6d6; }
+
+/* 로고 (임시 글자 로고) — 디자인 시스템의 A안/B안 이미지가 들어오면 교체
+   A안: 가로형(헤더·배너) / B안: 정사각·세로형(카드·OG·모바일) */
+.jaju-logo { display: inline-flex; align-items: flex-start; color: var(--jaju); line-height: 1; }
+.jaju-word { font-family: 'Noto Serif KR', serif; font-weight: 900; letter-spacing: .04em; }
+.jaju-pen { width: .22em; height: .22em; border-radius: 50%; background: var(--jaju-accent); margin-left: .08em; flex-shrink: 0; }
+.jaju-logo-a .jaju-word { font-size: 2.1rem; }
+.jaju-logo-b { flex-direction: column; align-items: center; }
+.jaju-logo-b .jaju-word { font-size: 1.6rem; writing-mode: horizontal-tb; }
+.jaju-logo-b .jaju-pen { margin: 8px 0 0; }
+.on-jaju .jaju-logo, .jaju-banner .jaju-logo, .theme-jaju .page-hero .jaju-logo { color: #fff; }
+.jaju-tree { width: 30px; height: 30px; filter: brightness(0) invert(1); opacity: .85; }
+
+/* 홈 배너 — 자주 바탕 + 흰 로고(A안) + 흰 나무 */
+.jaju-banner { background: var(--jaju); color: #fff; padding: 64px 0; text-align: center; }
+.jaju-banner-brand { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.jaju-promise { margin-top: 18px; font-size: clamp(1.25rem, 3vw, 1.6rem); font-weight: 700; letter-spacing: .08em; }
+.jaju-facts { margin-top: 14px; font-size: .98rem; opacity: .95; }
+.jaju-facts span { opacity: .5; margin: 0 6px; }
+.jaju-open { margin-top: 6px; font-size: .92rem; opacity: .85; }
+.jaju-banner-actions { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-jaju-light { background: #fff; color: var(--jaju); }
+.btn-jaju-line { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.8); }
+
+/* 갈림길 '학부모께' 카드 포인트 색: 자주 */
+.gate-card.parent { border-top-color: var(--jaju); }
+.gate-card.parent .gate-chip { background: var(--jaju-light); color: var(--jaju); }
+
+/* /jaju/* 페이지 테마 — <body class="theme-jaju"> */
+.theme-jaju .btn-primary { background: var(--jaju); }
+.theme-jaju .btn-outline { color: var(--jaju); border-color: var(--jaju); }
+.theme-jaju .sec-label { color: var(--jaju); }
+.theme-jaju .prog-meta span::before { color: var(--jaju-accent); }
+.theme-jaju .page-tag { background: var(--jaju-light); color: var(--jaju); }
+.theme-jaju a.card:hover { box-shadow: 0 8px 28px rgba(123,34,83,.14); }
+.theme-jaju .text-link { color: var(--jaju); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.theme-jaju .page-hero { background: var(--jaju); color: #fff; padding: 72px 0 60px; }
+.theme-jaju .page-hero .page-tag { background: rgba(255,255,255,.16); color: #fff; }
+.theme-jaju .page-hero .lead { color: rgba(255,255,255,.9); }
+.theme-jaju .page-hero .jaju-logo { margin-bottom: 6px; }
+.theme-jaju .open-banner { background: linear-gradient(120deg, var(--jaju-dark), var(--jaju)); }
+.theme-jaju .open-banner .btn { background: #fff; color: var(--jaju); }
+.theme-jaju .info-table th { background: var(--jaju-light); color: var(--jaju); }
+
+/* 자주국어 하위 메뉴 */
+.jaju-subnav { background: #fff; border-bottom: 1px solid var(--border); }
+.jaju-subnav .container { display: flex; gap: 4px; overflow-x: auto; padding-top: 6px; padding-bottom: 6px; }
+.jaju-subnav a { flex-shrink: 0; padding: 8px 14px; border-radius: 8px; font-size: .9rem; font-weight: 500; color: var(--navy); }
+.jaju-subnav a:hover { background: var(--jaju-light); color: var(--jaju); }
+.jaju-subnav a.active { color: var(--jaju); font-weight: 700; background: var(--jaju-light); }
+
+/* 자주국어 공통 블록 */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.jaju-card { border-top: 4px solid var(--jaju); }
+.jaju-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--jaju); }
+.jaju-card p { margin-top: 8px; font-size: .9rem; color: var(--sub); }
+.jaju-card .big { font-family: 'Noto Serif KR', serif; font-size: 2rem; font-weight: 900; color: var(--jaju); line-height: 1.2; }
+.check-list { list-style: none; display: grid; gap: 10px; }
+.check-list li { padding: 14px 16px 14px 44px; position: relative; background: #fff; border: 1px solid var(--border); border-radius: 12px; font-size: .95rem; }
+.check-list li::before { content: ''; position: absolute; left: 18px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--jaju-accent); }
+.status-chip { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .76rem; font-weight: 700; background: var(--jaju-light); color: var(--jaju); white-space: nowrap; }
+.status-chip.later { background: var(--bg-soft); color: var(--sub); }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
+.step { position: relative; padding-top: 40px; }
+.step::before { counter-increment: step; content: counter(step); position: absolute; top: 24px; left: 28px; width: 30px; height: 30px; border-radius: 50%; background: var(--jaju); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: .9rem; }
+.step h3 { margin-top: 20px; }
+.path-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-weight: 700; }
+.path-line .arrow { color: var(--jaju-accent); }
+.path-line .node { padding: 8px 16px; border-radius: 20px; background: var(--jaju-light); color: var(--jaju); }
+.data-table { width: 100%; border-collapse: collapse; font-size: .9rem; background: #fff; }
+.data-table th, .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.data-table thead th { background: var(--jaju-light); color: var(--jaju); font-weight: 700; }
+.data-table tbody th { font-weight: 700; color: var(--navy); white-space: nowrap; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+.pending { color: var(--sub); font-style: normal; background: var(--bg-soft); border: 1px dashed var(--border); border-radius: 8px; padding: 2px 10px; display: inline-block; }
+.tree-note { display: flex; gap: 14px; align-items: center; }
+.tree-note img { width: 28px; height: 28px; opacity: .7; flex-shrink: 0; }
+
+/* 상담 신청 폼 */
+.jaju-form { display: grid; gap: 18px; }
+.jaju-form label.field { display: grid; gap: 6px; font-size: .9rem; font-weight: 600; }
+.jaju-form .req { color: var(--jaju); }
+.jaju-form input[type=text], .jaju-form input[type=tel], .jaju-form select, .jaju-form textarea {
+  width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 10px;
+  font: inherit; font-weight: 400; color: var(--navy); background: #fff;
+}
+.jaju-form input:focus, .jaju-form select:focus, .jaju-form textarea:focus { outline: none; border-color: var(--jaju); }
+.jaju-form fieldset { border: none; display: grid; gap: 8px; }
+.jaju-form legend { font-size: .9rem; font-weight: 600; margin-bottom: 6px; }
+.choice-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.choice-row label { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1.5px solid var(--border); border-radius: 20px; font-size: .88rem; cursor: pointer; }
+.choice-row input { accent-color: var(--jaju); }
+.agree-box { background: var(--bg-soft); border-radius: 10px; padding: 14px 16px; font-size: .82rem; color: var(--sub); }
+.agree-box label { display: flex; gap: 8px; align-items: center; margin-top: 10px; font-size: .9rem; font-weight: 600; color: var(--navy); }
+.agree-box input { accent-color: var(--jaju); width: 18px; height: 18px; }
+.jaju-form button[type=submit] { border: none; cursor: pointer; font: inherit; font-weight: 700; padding: 14px; border-radius: 12px; background: var(--jaju); color: #fff; font-size: 1rem; }
+.jaju-form button[disabled] { opacity: .6; cursor: wait; }
+.form-msg { font-size: .9rem; color: var(--jaju); min-height: 1.4em; }
+.contact-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.contact-buttons a { flex: 1 1 200px; text-align: center; padding: 14px 18px; border-radius: 12px; font-weight: 700; }
+.contact-buttons .tel { background: var(--jaju); color: #fff; }
+.contact-buttons .kakao { background: #FEE500; color: #191919; }
+.contact-buttons .is-disabled { background: var(--bg-soft); color: var(--sub); cursor: default; }
+[hidden] { display: none !important; }
+
 /* ── 반응형 ── */
 @media (max-width: 900px) {
   .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3, .steps { grid-template-columns: 1fr; }
   .prog-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 720px) {
+/* 헤더: 메뉴 6개 + 자주국어 CTA가 한 줄에 들어가지 않는 폭부터 햄버거 메뉴로 전환 */
+.gnb a { white-space: nowrap; }
+.gnb .btn-app-mobile { display: none; }
+.btn-app { white-space: nowrap; }
+@media (max-width: 1000px) {
   .gnb {
     display: none; position: absolute; top: 64px; left: 0; right: 0;
     background: #fff; border-bottom: 1px solid var(--border);
@@ -266,7 +396,11 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
     display: block; margin-top: 8px; text-align: center; background: var(--teal);
     color: #fff; border-radius: 10px; font-weight: 700;
   }
-  .gate-grid, .recent-grid { grid-template-columns: 1fr; }
+  .gnb .btn-app-mobile.btn-jaju-cta { background: var(--jaju); }
+}
+@media (max-width: 720px) {
+  .gate-grid, .recent-grid, .grid-2 { grid-template-columns: 1fr; }
+  .jaju-banner { padding: 48px 0; }
   .hero { padding: 68px 0 60px; }
   .section { padding: 52px 0; }
   .open-banner { padding: 32px 24px; }
@@ -274,5 +408,8 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
   .footer-links { margin-left: 0; }
 }
 @media (max-width: 460px) {
-  .values-grid { grid-template-columns: 1fr; }
+  .values-grid, .grid-4 { grid-template-columns: 1fr; }
 }
+.theme-jaju .page-hero h1.jaju-promise-h1 { margin-top: 18px; letter-spacing: .08em; }
+.table-wrap .data-table { min-width: 540px; }
+.data-table tbody th { white-space: normal; min-width: 110px; }

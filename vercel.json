@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/daum.html", "destination": "/jaju/", "permanent": true },
+    { "source": "/daum", "destination": "/jaju/", "permanent": true }
+  ]
+}

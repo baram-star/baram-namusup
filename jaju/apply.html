@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상담·신청 — 자주국어</title>
+<meta name="description" content="자주국어 상담 신청, 교습비·개강 일정·오시는 길 안내. 전화 010-7207-9004.">
+<meta property="og:title" content="상담·신청 — 자주국어">
+<meta property="og:description" content="자주국어 상담 신청, 교습비·개강 일정·오시는 길 안내. 전화 010-7207-9004.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="theme-jaju">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html"><img src="../img/logo.png" alt="바람나무숲 로고"><span class="brand-name">바람나무숲</span></a>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="메뉴 열기">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="gnb">
+      <a href="../about.html">바람나무숲은?</a>
+      <a href="./" class="active">자주국어</a>
+      <a href="../academy.html">인문학교실</a>
+      <a href="../parents.html">학부모교실</a>
+      <a href="../journal.html">교육저널</a>
+      <a href="../contact.html">문의</a>
+      <a class="btn-app-mobile btn-jaju-cta" href="apply.html">자주국어 상담 신청</a>
+    </nav>
+    <a class="btn-app btn-jaju-cta" href="apply.html">자주국어 상담 신청</a>
+  </div>
+</header>
+
+<nav class="jaju-subnav" aria-label="자주국어 메뉴">
+  <div class="container">
+      <a href="./">자주국어 소개</a>
+      <a href="program.html">과정 안내</a>
+      <a href="story.html">이야기로 문해력 기르기</a>
+      <a href="method.html">수업 방식</a>
+      <a href="apply.html" class="active">상담·신청</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="page-tag">상담·신청</span>
+    <h1>상담 신청</h1>
+    <p class="lead">아이의 지금을 함께 살펴보는 것부터 시작합니다.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:720px;">
+    <div class="sec-head">
+      <div class="sec-label">Consultation</div>
+      <h2 class="sec-title">상담 신청</h2>
+    </div>
+
+    <!-- jajuScriptUrl이 비어 있을 때 보이는 안내 (기본값: 보임) -->
+    <div class="card" id="jaju-apply-fallback">
+      <h3 style="font-size:1.1rem;font-weight:800;">전화·카카오로 문의해 주세요</h3>
+      <p style="margin-top:8px;color:var(--sub);font-size:.92rem;">온라인 상담 신청은 준비 중입니다. 아래 전화 또는 카카오채널로 연락 주시면 상담 일정을 잡아 드립니다.</p>
+      <div class="contact-buttons">
+        <a class="tel" href="tel:01072079004" data-jaju-tel="전화 {phone}">전화 010-7207-9004</a>
+        <a class="kakao" data-jaju-kakao>카카오채널 준비 중</a>
+      </div>
+    </div>
+
+    <!-- jajuScriptUrl이 있을 때만 보이는 폼 -->
+    <form class="card jaju-form" id="jaju-apply-form" hidden novalidate>
+      <label class="field">학부모 이름 <span class="req">*</span>
+        <input type="text" name="parent_name" autocomplete="name" required>
+      </label>
+      <label class="field">연락처 <span class="req">*</span>
+        <input type="tel" name="phone" placeholder="010-0000-0000" autocomplete="tel" required>
+      </label>
+      <label class="field">자녀 학년 <span class="req">*</span>
+        <select name="grade" required>
+              <option value="">선택해 주세요</option>
+              <option value="초5">초5</option>
+              <option value="초6">초6</option>
+              <option value="중1">중1</option>
+              <option value="중2">중2</option>
+              <option value="중3">중3</option>
+              <option value="기타">기타</option>
+        </select>
+      </label>
+      <fieldset>
+        <legend>관심 과정 <span class="req">*</span> (여러 개 고를 수 있어요)</legend>
+        <div class="choice-row">
+              <label><input type="checkbox" name="course" value="자주독서"> 자주독서</label>
+              <label><input type="checkbox" name="course" value="자주국어"> 자주국어</label>
+              <label><input type="checkbox" name="course" value="자주논술"> 자주논술</label>
+              <label><input type="checkbox" name="course" value="이야기로 문해력 기르기"> 이야기로 문해력 기르기</label>
+              <label><input type="checkbox" name="course" value="방학 특강"> 방학 특강</label>
+        </div>
+      </fieldset>
+      <label class="field">희망 상담 시간
+        <input type="text" name="preferred_time" placeholder="예: 평일 저녁 7시 이후">
+      </label>
+      <label class="field">메모
+        <textarea name="memo" rows="4" placeholder="아이의 읽기·쓰기 상황, 궁금한 점을 자유롭게 적어 주세요."></textarea>
+      </label>
+      <div class="agree-box">
+        <strong>개인정보 수집·이용 안내</strong><br>
+        수집 항목: 학부모 이름, 연락처, 자녀 학년, 관심 과정, 희망 상담 시간, 메모<br>
+        이용 목적: 자주국어 상담 연락 및 안내<br>
+        보유 기간: 상담 목적 달성 후 지체 없이 파기<br>
+        동의하지 않으실 수 있으며, 이 경우 온라인 상담 신청은 어렵고 전화로 문의하실 수 있습니다.
+        <label><input type="checkbox" name="agree" value="Y" required> 개인정보 수집·이용에 동의합니다 (필수)</label>
+      </div>
+      <button type="submit">상담 신청하기</button>
+      <p class="form-msg" id="jaju-apply-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container" style="max-width:720px;">
+    <div class="sec-head">
+      <div class="sec-label">Tuition</div>
+      <h2 class="sec-title">교습비 안내</h2>
+    </div>
+    <div class="table-wrap">
+      <table class="info-table">
+        <tr><th>교습비</th><td><span class="pending">개원 시 안내</span></td></tr>
+        <tr><th>교습소 신고번호</th><td><span class="pending">개원 시 안내</span></td></tr>
+      </table>
+    </div>
+    <p class="sec-desc" style="font-size:.85rem;">교습비는 교습소 신고 후 확정된 금액으로 이 자리에 게시합니다.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:720px;">
+    <div class="sec-head">
+      <div class="sec-label">Schedule</div>
+      <h2 class="sec-title">개강 일정</h2>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>과정</th><th>대상</th><th>개강</th></tr></thead>
+        <tbody id="jaju-schedule-body">
+          <tr><th>이야기로 문해력 기르기</th><td>예비중3</td><td>2027년 1월</td></tr>
+          <tr><th>자주독서 · 자주국어 정규반</th><td>초5~6 · 중1~3</td><td>2027년 3월</td></tr>
+          <tr><th>자주논술</th><td>초6~중3</td><td>2027년 하반기</td></tr>
+          <tr><th>방학 특강</th><td>학년별</td><td>2027년 겨울부터</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-desc" style="font-size:.85rem;">요일·시간 등 세부 일정은 상담 시 안내합니다.</p>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container" style="max-width:720px;">
+    <div class="sec-head">
+      <div class="sec-label">Location</div>
+      <h2 class="sec-title">오시는 길</h2>
+    </div>
+    <div class="table-wrap">
+      <table class="info-table">
+        <tr><th>주소</th><td>동탄 — <span class="pending">개원 시 안내</span> (상담 시 안내해 드립니다)</td></tr>
+        <tr><th>전화</th><td><a class="text-link" href="tel:01072079004">010-7207-9004</a></td></tr>
+      </table>
+    </div>
+    <div class="contact-buttons">
+      <a class="tel" href="tel:01072079004" data-jaju-tel="전화 걸기 {phone}">전화 걸기 010-7207-9004</a>
+      <a class="kakao" data-jaju-kakao>카카오채널 준비 중</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">자주국어</div>
+      <div class="footer-sub">운영: 바람나무숲 교육연구소</div>
+      <div class="footer-info">교습소 주소: 개원 시 안내 (동탄) · 교습소 신고번호: 개원 시 안내<br>전화 010-7207-9004 · baram@baramnamu.net</div>
+    </div>
+    <div class="footer-links"><a href="../index.html">바람나무숲 홈</a></div>
+  </div>
+</footer>
+
+<script src="../config.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>
