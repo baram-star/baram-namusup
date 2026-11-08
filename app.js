@@ -144,7 +144,7 @@ function initJajuApply() {
   });
   document.querySelectorAll('[data-jaju-kakao]').forEach(a => {
     if (SITE.jajuKakaoUrl) { a.href = SITE.jajuKakaoUrl; a.target = '_blank'; a.rel = 'noopener'; }
-    else { a.removeAttribute('href'); a.classList.add('is-disabled'); a.textContent = '카카오채널 준비 중'; }
+    else { a.removeAttribute('href'); a.classList.add('is-disabled'); a.textContent = '카카오톡 채널 준비 중'; }
   });
 
   if (!SITE.jajuScriptUrl) {
@@ -162,10 +162,10 @@ function initJajuApply() {
     const fd = new FormData(form);
     const courses = fd.getAll('course');
     if (!fd.get('parent_name')?.trim() || !fd.get('phone')?.trim() || !fd.get('grade')) {
-      msg.textContent = '학부모 이름, 연락처, 자녀 학년을 입력해 주세요.'; return;
+      msg.textContent = '학부모 이름, 연락처, 자녀 학년을 입력해 주십시오.'; return;
     }
-    if (!courses.length) { msg.textContent = '관심 과정을 하나 이상 골라 주세요.'; return; }
-    if (!fd.get('agree')) { msg.textContent = '개인정보 수집·이용에 동의해 주세요.'; return; }
+    if (!courses.length) { msg.textContent = '관심 과정을 하나 이상 골라 주십시오.'; return; }
+    if (!fd.get('agree')) { msg.textContent = '개인정보 수집·이용에 동의해 주십시오.'; return; }
 
     const body = new URLSearchParams({
       type: 'jaju_consult',
@@ -186,7 +186,7 @@ function initJajuApply() {
       form.reset();
       msg.textContent = '신청이 접수되었습니다. 확인 후 연락드리겠습니다.';
     } catch (err) {
-      msg.textContent = '전송하지 못했습니다. 전화로 문의해 주세요.';
+      msg.textContent = '전송하지 못했습니다. 전화로 문의해 주십시오.';
     } finally {
       btn.disabled = false;
     }

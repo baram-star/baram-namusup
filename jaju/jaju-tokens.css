@@ -1,0 +1,38 @@
+/* 자주국어 디자인 시스템 토큰 — 원본: Claude Design System 아티팩트 '자주국어' (2026-10-22)
+   https://claude.ai/artifact/4dm28VquT2q7gWTu92U5WR
+   홈페이지에서는 <body class="theme-jaju"> 또는 /jaju/ 페이지에서 사용 */
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@600;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Nanum+Pen+Script&display=swap');
+
+:root{
+  --jaju:#7b2253; --jaju-deep:#4a1433; --jaju-soft:#f3e4ec; --on-jaju:#ffffff;
+  --namu:#2f5d50; --paper:#fcfafb; --surface:#ffffff;
+  --ink:#221a1f; --ink-muted:#6b5a63; --kan-line:#c79ab2;
+  --font-display:"Hahmlet","Noto Serif KR","Nanum Myeongjo",serif;
+  --font-sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --font-hand:"Nanum Pen Script","Nanum Pen",cursive;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-6:24px; --space-8:32px; --space-12:48px; --kan:40px;
+  --radius-0:0px; --radius-s:2px; --radius-m:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --jaju:#d88ab3; --jaju-deep:#f2d9e5; --jaju-soft:#3a1a2b; --on-jaju:#2a0e1d;
+    --namu:#8dbfae; --paper:#1a1418; --surface:#241c21;
+    --ink:#f3ecef; --ink-muted:#b9a8b1; --kan-line:#6e3e57;
+  }
+}
+:root[data-theme="dark"]{
+  --jaju:#d88ab3; --jaju-deep:#f2d9e5; --jaju-soft:#3a1a2b; --on-jaju:#2a0e1d;
+  --namu:#8dbfae; --paper:#1a1418; --surface:#241c21;
+  --ink:#f3ecef; --ink-muted:#b9a8b1; --kan-line:#6e3e57;
+}
+
+/* 글자 스타일 */
+.t-display-xl{font:700 64px/1.12 var(--font-display);letter-spacing:-.01em}
+.t-display-l{font:700 44px/1.18 var(--font-display)}
+.t-heading{font:600 28px/1.3 var(--font-display)}
+.t-title{font:600 20px/1.45 var(--font-sans)}
+.t-body{font:400 16px/1.75 var(--font-sans)}
+.t-body-s{font:400 14px/1.6 var(--font-sans)}
+.t-label{font:500 12px/1.4 var(--font-sans);letter-spacing:.06em}
+.t-memo{font:400 24px/1.3 var(--font-hand);color:var(--namu)} /* 원장 질문 메모 전용 */

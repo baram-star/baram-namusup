@@ -12,6 +12,7 @@
 <link rel="icon" href="../img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="jaju-tokens.css">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body class="theme-jaju">
@@ -56,17 +57,17 @@
 <section class="section">
   <div class="container" style="max-width:720px;">
     <div class="sec-head">
-      <div class="sec-label">Consultation</div>
+      <div class="sec-label">상담</div>
       <h2 class="sec-title">상담 신청</h2>
     </div>
 
     <!-- jajuScriptUrl이 비어 있을 때 보이는 안내 (기본값: 보임) -->
     <div class="card" id="jaju-apply-fallback">
-      <h3 style="font-size:1.1rem;font-weight:800;">전화·카카오로 문의해 주세요</h3>
-      <p style="margin-top:8px;color:var(--sub);font-size:.92rem;">온라인 상담 신청은 준비 중입니다. 아래 전화 또는 카카오채널로 연락 주시면 상담 일정을 잡아 드립니다.</p>
+      <h3 style="font:600 20px/1.45 var(--font-sans);">카카오톡 채널이나 전화로 문의해 주십시오</h3>
+      <p style="margin-top:8px;color:var(--sub);font-size:.92rem;">온라인 상담 신청은 준비 중입니다. 카카오톡 채널 또는 전화로 연락 주시면 상담 일정을 잡아 드립니다.</p>
       <div class="contact-buttons">
+        <a class="kakao" data-jaju-kakao>카카오톡 채널 자주국어</a>
         <a class="tel" href="tel:01072079004" data-jaju-tel="전화 {phone}">전화 010-7207-9004</a>
-        <a class="kakao" data-jaju-kakao>카카오채널 준비 중</a>
       </div>
     </div>
 
@@ -80,7 +81,7 @@
       </label>
       <label class="field">자녀 학년 <span class="req">*</span>
         <select name="grade" required>
-              <option value="">선택해 주세요</option>
+              <option value="">선택</option>
               <option value="초5">초5</option>
               <option value="초6">초6</option>
               <option value="중1">중1</option>
@@ -90,7 +91,7 @@
         </select>
       </label>
       <fieldset>
-        <legend>관심 과정 <span class="req">*</span> (여러 개 고를 수 있어요)</legend>
+        <legend>관심 과정 <span class="req">*</span> (여러 개 고를 수 있습니다)</legend>
         <div class="choice-row">
               <label><input type="checkbox" name="course" value="자주독서"> 자주독서</label>
               <label><input type="checkbox" name="course" value="자주국어"> 자주국어</label>
@@ -103,7 +104,7 @@
         <input type="text" name="preferred_time" placeholder="예: 평일 저녁 7시 이후">
       </label>
       <label class="field">메모
-        <textarea name="memo" rows="4" placeholder="아이의 읽기·쓰기 상황, 궁금한 점을 자유롭게 적어 주세요."></textarea>
+        <textarea name="memo" rows="4" placeholder="아이의 읽기·쓰기 상황과 궁금한 점을 적어 주십시오."></textarea>
       </label>
       <div class="agree-box">
         <strong>개인정보 수집·이용 안내</strong><br>
@@ -122,7 +123,7 @@
 <section class="section soft">
   <div class="container" style="max-width:720px;">
     <div class="sec-head">
-      <div class="sec-label">Tuition</div>
+      <div class="sec-label">교습비</div>
       <h2 class="sec-title">교습비 안내</h2>
     </div>
     <div class="table-wrap">
@@ -138,7 +139,7 @@
 <section class="section">
   <div class="container" style="max-width:720px;">
     <div class="sec-head">
-      <div class="sec-label">Schedule</div>
+      <div class="sec-label">개강 일정</div>
       <h2 class="sec-title">개강 일정</h2>
     </div>
     <div class="table-wrap">
@@ -159,28 +160,29 @@
 <section class="section soft">
   <div class="container" style="max-width:720px;">
     <div class="sec-head">
-      <div class="sec-label">Location</div>
+      <div class="sec-label">오시는 길</div>
       <h2 class="sec-title">오시는 길</h2>
     </div>
     <div class="table-wrap">
       <table class="info-table">
         <tr><th>주소</th><td>동탄 — <span class="pending">개원 시 안내</span> (상담 시 안내해 드립니다)</td></tr>
+        <tr><th>카카오톡 채널</th><td>자주국어 (개설 준비 중)</td></tr>
         <tr><th>전화</th><td><a class="text-link" href="tel:01072079004">010-7207-9004</a></td></tr>
       </table>
     </div>
     <div class="contact-buttons">
+      <a class="kakao" data-jaju-kakao>카카오톡 채널 자주국어</a>
       <a class="tel" href="tel:01072079004" data-jaju-tel="전화 걸기 {phone}">전화 걸기 010-7207-9004</a>
-      <a class="kakao" data-jaju-kakao>카카오채널 준비 중</a>
     </div>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="footer-inner">
+    <span class="jaju-logo jaju-logo-sq" role="img" aria-label="자주국어"><span class="k fill">자</span><span class="k fill">주</span><span class="k">국</span><span class="k">어</span></span>
     <div>
-      <div class="footer-brand">자주국어</div>
-      <div class="footer-sub">운영: 바람나무숲 교육연구소</div>
-      <div class="footer-info">교습소 주소: 개원 시 안내 (동탄) · 교습소 신고번호: 개원 시 안내<br>전화 010-7207-9004 · baram@baramnamu.net</div>
+      <div class="org-label">바람나무숲 교육연구소</div>
+      <div class="footer-info">카카오톡 채널 자주국어 (개설 준비 중) · 전화 010-7207-9004 · baram@baramnamu.net<br>교습소 주소: 동탄 (개원 시 안내) · 교습소 신고번호: 개원 시 안내</div>
     </div>
     <div class="footer-links"><a href="../index.html">바람나무숲 홈</a></div>
   </div>

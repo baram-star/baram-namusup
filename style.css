@@ -23,12 +23,6 @@
   --sam-l: #faeeec;
   --kkum-l: #f1edfa;
   --teal-l: #e6f7f6;
-  /* 자주국어 — 자주국어 섹션(/jaju/*, 홈 배너, 헤더 CTA)에서만 사용
-     ※ 자주국어 디자인 시스템 파일이 저장소에 들어오면 아래 값을 그 파일 값으로 교체 */
-  --jaju: #7b2253;          /* 자주 (주색) */
-  --jaju-dark: #5e1940;     /* 자주 · 눌림/hover */
-  --jaju-light: #f6eaf0;    /* 연자주 (바탕·칩) */
-  --jaju-accent: #2f5d50;   /* 초록 펜 (펜 점·고리·코멘트) */
   --radius: 14px;
   --shadow: 0 2px 16px rgba(0,120,110,.08);
   --maxw: 1080px;
@@ -156,8 +150,7 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
   display: inline-block; font-size: .75rem; font-weight: 700; padding: 4px 12px;
   border-radius: 20px; margin-bottom: 14px;
 }
-.prog-card.jaju    .prog-tag { background: var(--jaju-light); color: var(--jaju); }
-.prog-card.jaju { border-top: 4px solid var(--jaju); }
+.prog-card.jaju    .prog-tag { background: var(--jaju-soft); color: var(--jaju-deep); }
 .prog-card.jaju .prog-more { color: var(--jaju); }
 .prog-card.academy .prog-tag { background: var(--sam-l); color: var(--sam); }
 .prog-card.parents .prog-tag { background: var(--sum-l); color: var(--sum); }
@@ -257,119 +250,196 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
 
 /* ══════════════════════════════════════════════
    자주국어 (교습소 브랜드 존)
+   색·글꼴·간격 값은 jaju/jaju-tokens.css (자주국어 디자인 시스템 원본) 에서 옵니다.
+   규칙(jaju/README.md): 자주는 한 화면에 한 덩어리 · 자주 위 글자는 on-jaju ·
+   namu는 초록 펜 메모와 '바람나무숲 교육연구소' 표기에만 · kan-line은 칸선 전용 ·
+   모서리는 radius-0, 버튼·카드만 radius-m
    ══════════════════════════════════════════════ */
 
-/* 헤더 CTA — 모든 페이지 공통, 자주색 */
-.btn-app.btn-jaju-cta { background: var(--jaju); }
-.btn-app.btn-jaju-cta:hover { background: var(--jaju-dark); }
+/* 헤더 CTA — 모든 페이지 공통 */
+.btn-app.btn-jaju-cta { background: var(--jaju); color: var(--on-jaju); border-radius: var(--radius-m); }
+.btn-app.btn-jaju-cta:hover { background: var(--jaju-deep); }
 .footer-sub { margin-top: 4px; font-size: .8rem; color: #9fb0ae; }
-.footer-sub a { color: #e7c6d6; }
+.footer-sub a { color: var(--mint); }
 
-/* 로고 (임시 글자 로고) — 디자인 시스템의 A안/B안 이미지가 들어오면 교체
-   A안: 가로형(헤더·배너) / B안: 정사각·세로형(카드·OG·모바일) */
-.jaju-logo { display: inline-flex; align-items: flex-start; color: var(--jaju); line-height: 1; }
-.jaju-word { font-family: 'Noto Serif KR', serif; font-weight: 900; letter-spacing: .04em; }
-.jaju-pen { width: .22em; height: .22em; border-radius: 50%; background: var(--jaju-accent); margin-left: .08em; flex-shrink: 0; }
-.jaju-logo-a .jaju-word { font-size: 2.1rem; }
-.jaju-logo-b { flex-direction: column; align-items: center; }
-.jaju-logo-b .jaju-word { font-size: 1.6rem; writing-mode: horizontal-tb; }
-.jaju-logo-b .jaju-pen { margin: 8px 0 0; }
-.on-jaju .jaju-logo, .jaju-banner .jaju-logo, .theme-jaju .page-hero .jaju-logo { color: #fff; }
-.jaju-tree { width: 30px; height: 30px; filter: brightness(0) invert(1); opacity: .85; }
+/* ── 로고: 원고지 네 칸 ──
+   가로형  [자][주][국][어]  '자주' 두 칸은 jaju로 채우고 글자는 on-jaju, '국어' 두 칸은 jaju 선·글자
+   정사각형 .jaju-logo-sq (2×2) · 단색 .jaju-logo-mono (선과 글자만)
+   칸 크기는 --k 로 조절, 둘레 여백은 반 칸 이상 */
+.jaju-logo {
+  --k: 40px; --c: var(--jaju); --on: var(--on-jaju);
+  display: inline-grid; grid-template-columns: repeat(4, var(--k));
+  border: 1px solid var(--c); margin: calc(var(--k) / 2); border-radius: 0;
+}
+.jaju-logo .k {
+  width: var(--k); height: var(--k); border: 1px solid var(--c);
+  display: flex; align-items: center; justify-content: center;
+  font: 700 calc(var(--k) * .56)/1 var(--font-display); color: var(--c);
+}
+.jaju-logo .k.fill { background: var(--c); color: var(--on); }
+.jaju-logo-sq { grid-template-columns: repeat(2, var(--k)); }
+.jaju-logo-mono .k.fill { background: transparent; color: var(--c); }
+/* 자주 바탕 위에서는 단색 로고를 on-jaju 색으로 */
+.jaju-logo-mono.is-on-jaju { --c: var(--on-jaju); }
 
-/* 홈 배너 — 자주 바탕 + 흰 로고(A안) + 흰 나무 */
-.jaju-banner { background: var(--jaju); color: #fff; padding: 64px 0; text-align: center; }
-.jaju-banner-brand { display: flex; align-items: center; justify-content: center; gap: 14px; }
-.jaju-promise { margin-top: 18px; font-size: clamp(1.25rem, 3vw, 1.6rem); font-weight: 700; letter-spacing: .08em; }
-.jaju-facts { margin-top: 14px; font-size: .98rem; opacity: .95; }
-.jaju-facts span { opacity: .5; margin: 0 6px; }
-.jaju-open { margin-top: 6px; font-size: .92rem; opacity: .85; }
+/* ── 홈 배너 — 자주 바탕(간판) + 단색 로고 ── */
+.jaju-banner { background: var(--jaju); color: var(--on-jaju); padding: 56px 0 64px; text-align: center; }
+.jaju-banner .jaju-logo { --k: 44px; }
+.jaju-promise { margin-top: 4px; font: 700 clamp(1.6rem, 4vw, 2.75rem)/1.18 var(--font-display); }
+.jaju-facts { margin-top: 16px; font: 400 1rem/1.75 var(--font-sans); }
+.jaju-facts span { opacity: .55; margin: 0 6px; }
+.jaju-open { margin-top: 4px; font: 400 .92rem/1.6 var(--font-sans); opacity: .9; }
 .jaju-banner-actions { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.btn-jaju-light { background: #fff; color: var(--jaju); }
-.btn-jaju-line { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.8); }
+.btn-jaju-light { background: var(--on-jaju); color: var(--jaju); border-radius: var(--radius-m); }
+.btn-jaju-line { background: transparent; color: var(--on-jaju); border: 1.5px solid var(--on-jaju); border-radius: var(--radius-m); }
 
-/* 갈림길 '학부모께' 카드 포인트 색: 자주 */
+/* 갈림길 '학부모께' 카드 포인트 */
 .gate-card.parent { border-top-color: var(--jaju); }
-.gate-card.parent .gate-chip { background: var(--jaju-light); color: var(--jaju); }
+.gate-card.parent .gate-chip { background: var(--jaju-soft); color: var(--jaju-deep); }
 
-/* /jaju/* 페이지 테마 — <body class="theme-jaju"> */
-.theme-jaju .btn-primary { background: var(--jaju); }
-.theme-jaju .btn-outline { color: var(--jaju); border-color: var(--jaju); }
-.theme-jaju .sec-label { color: var(--jaju); }
-.theme-jaju .prog-meta span::before { color: var(--jaju-accent); }
-.theme-jaju .page-tag { background: var(--jaju-light); color: var(--jaju); }
-.theme-jaju a.card:hover { box-shadow: 0 8px 28px rgba(123,34,83,.14); }
+/* ── /jaju/* 페이지 테마 — <body class="theme-jaju"> ──
+   사이트 공통 변수를 자주국어 토큰으로 바꿔 끼워 밝은·어두운 화면 모두 대응 */
+.theme-jaju, .jaju-banner { word-break: keep-all; }
+.theme-jaju {
+  --bg: var(--paper); --bg-soft: var(--surface);
+  --navy: var(--ink); --sub: var(--ink-muted);
+  --border: color-mix(in srgb, var(--ink) 13%, transparent);
+  --shadow: none;
+  background: var(--paper); color: var(--ink);
+  font-family: var(--font-sans); font-size: 16px; line-height: 1.75;
+}
+.theme-jaju h1, .theme-jaju h2, .theme-jaju .sec-title { font-family: var(--font-display); font-weight: 700; }
+.theme-jaju .sec-title { font-weight: 600; font-size: clamp(1.4rem, 3vw, 1.75rem); }
+.theme-jaju .sec-label { font: 500 12px/1.4 var(--font-sans); letter-spacing: .06em; color: var(--ink-muted); }
+.theme-jaju .section.soft { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.theme-jaju .site-header { background: color-mix(in srgb, var(--paper) 94%, transparent); }
+.theme-jaju .brand-name { color: var(--namu); }   /* 바람나무숲 표기 = namu */
+.theme-jaju .gnb a:hover { background: var(--jaju-soft); color: var(--jaju-deep); }
+.theme-jaju .gnb a.active { color: var(--jaju); }
+.theme-jaju .card { background: var(--surface); border-radius: var(--radius-m); box-shadow: none; }
+.theme-jaju a.card:hover { box-shadow: none; border-color: var(--jaju); }
+.theme-jaju .btn { border-radius: var(--radius-m); }
+.theme-jaju .btn-primary { background: var(--jaju); color: var(--on-jaju); }
+.theme-jaju .btn-outline { background: transparent; color: var(--jaju); border-color: var(--jaju); }
 .theme-jaju .text-link { color: var(--jaju); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-.theme-jaju .page-hero { background: var(--jaju); color: #fff; padding: 72px 0 60px; }
-.theme-jaju .page-hero .page-tag { background: rgba(255,255,255,.16); color: #fff; }
-.theme-jaju .page-hero .lead { color: rgba(255,255,255,.9); }
-.theme-jaju .page-hero .jaju-logo { margin-bottom: 6px; }
-.theme-jaju .open-banner { background: linear-gradient(120deg, var(--jaju-dark), var(--jaju)); }
-.theme-jaju .open-banner .btn { background: #fff; color: var(--jaju); }
-.theme-jaju .info-table th { background: var(--jaju-light); color: var(--jaju); }
+.theme-jaju .page-tag { background: var(--jaju-soft); color: var(--jaju-deep); border-radius: var(--radius-s); font: 500 12px/1.4 var(--font-sans); letter-spacing: .06em; }
+.theme-jaju .info-table th { background: var(--jaju-soft); color: var(--jaju-deep); }
+.theme-jaju .placeholder { border-radius: 0; }
+
+/* 서브 히어로 — 종이 바탕 */
+.theme-jaju .page-hero { background: var(--paper); padding: 64px 0 40px; border-bottom: 1px solid var(--border); }
+.theme-jaju .page-hero h1 { margin-top: 16px; font: 700 clamp(1.75rem, 4vw, 2.75rem)/1.18 var(--font-display); }
+.theme-jaju .page-hero .lead { color: var(--ink-muted); }
+
+/* 소개 페이지 첫 화면: 로고 + 약속 문장 + 대표 버튼 하나 + 원고지 메모 판 */
+.jaju-hero { padding: 48px 0 64px; border-bottom: 1px solid var(--border); }
+.jaju-hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+.jaju-hero .jaju-logo { --k: 48px; margin-left: 0; }
+.jaju-hero h1 { font: 700 clamp(2.25rem, 6vw, 4rem)/1.12 var(--font-display); letter-spacing: -.01em; }
+.jaju-hero .lead { margin-top: 16px; font-size: 1.05rem; }
+.jaju-hero .facts { margin-top: 8px; font-size: .9rem; color: var(--ink-muted); }
+.jaju-hero .actions { margin-top: 32px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+/* 원고지 판 — 칸 무늬는 이 한 곳에만 */
+.manuscript {
+  background-color: var(--surface);
+  background-image:
+    linear-gradient(var(--kan-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--kan-line) 1px, transparent 1px);
+  background-size: var(--kan) var(--kan);
+  background-position: -1px -1px;
+  border: 1px solid var(--kan-line);
+  padding: var(--kan) var(--kan) calc(var(--kan) * 1.5);
+}
+/* 글자 하나가 칸 하나에 들어가도록: 글자 20px + 자간 20px = 칸 40px, 앞 여백 10px로 가운데 맞춤 */
+.manuscript .line { font: 600 20px/var(--kan) var(--font-display); letter-spacing: 20px; padding-left: 10px; color: var(--ink); white-space: nowrap; }
+.manuscript .memo { margin-top: var(--space-4); font: 400 24px/1.3 var(--font-hand); color: var(--namu); }
 
 /* 자주국어 하위 메뉴 */
-.jaju-subnav { background: #fff; border-bottom: 1px solid var(--border); }
+.jaju-subnav { background: var(--paper); border-bottom: 1px solid var(--border); }
 .jaju-subnav .container { display: flex; gap: 4px; overflow-x: auto; padding-top: 6px; padding-bottom: 6px; }
-.jaju-subnav a { flex-shrink: 0; padding: 8px 14px; border-radius: 8px; font-size: .9rem; font-weight: 500; color: var(--navy); }
-.jaju-subnav a:hover { background: var(--jaju-light); color: var(--jaju); }
-.jaju-subnav a.active { color: var(--jaju); font-weight: 700; background: var(--jaju-light); }
+.jaju-subnav a { flex-shrink: 0; padding: 8px 14px; border-radius: var(--radius-s); font-size: .9rem; font-weight: 500; color: var(--ink); }
+.jaju-subnav a:hover, .jaju-subnav a.active { background: var(--jaju-soft); color: var(--jaju-deep); }
+.jaju-subnav a.active { font-weight: 600; }
 
-/* 자주국어 공통 블록 */
-.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.jaju-card { border-top: 4px solid var(--jaju); }
-.jaju-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--jaju); }
-.jaju-card p { margin-top: 8px; font-size: .9rem; color: var(--sub); }
-.jaju-card .big { font-family: 'Noto Serif KR', serif; font-size: 2rem; font-weight: 900; color: var(--jaju); line-height: 1.2; }
-.check-list { list-style: none; display: grid; gap: 10px; }
-.check-list li { padding: 14px 16px 14px 44px; position: relative; background: #fff; border: 1px solid var(--border); border-radius: 12px; font-size: .95rem; }
-.check-list li::before { content: ''; position: absolute; left: 18px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--jaju-accent); }
-.status-chip { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .76rem; font-weight: 700; background: var(--jaju-light); color: var(--jaju); white-space: nowrap; }
-.status-chip.later { background: var(--bg-soft); color: var(--sub); }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
-.step { position: relative; padding-top: 40px; }
-.step::before { counter-increment: step; content: counter(step); position: absolute; top: 24px; left: 28px; width: 30px; height: 30px; border-radius: 50%; background: var(--jaju); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: .9rem; }
-.step h3 { margin-top: 20px; }
-.path-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-weight: 700; }
-.path-line .arrow { color: var(--jaju-accent); }
-.path-line .node { padding: 8px 16px; border-radius: 20px; background: var(--jaju-light); color: var(--jaju); }
-.data-table { width: 100%; border-collapse: collapse; font-size: .9rem; background: #fff; }
+/* 공통 블록 */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+.jaju-card h3 { font: 600 20px/1.45 var(--font-sans); color: var(--ink); }
+.jaju-card p { margin-top: 8px; font-size: 14px; line-height: 1.6; color: var(--ink-muted); }
+.jaju-card .big { font: 700 2rem/1.25 var(--font-display); color: var(--ink); margin-bottom: 4px; }
+.quote-list { display: grid; gap: var(--space-3); margin-top: var(--space-6); }
+.quote-list p { font: 600 clamp(1.1rem, 2.4vw, 1.4rem)/1.45 var(--font-display); }
+.check-list { list-style: none; display: grid; gap: var(--space-3); }
+.check-list li { padding: 14px 16px 14px 44px; position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-m); }
+.check-list li::before { content: ''; position: absolute; left: 18px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border: 2px solid var(--jaju); border-radius: 0; }
+.status-chip { display: inline-block; padding: 3px 10px; border-radius: var(--radius-s); font-size: .76rem; font-weight: 600; background: var(--jaju-soft); color: var(--jaju-deep); white-space: nowrap; }
+.status-chip.later { background: transparent; border: 1px solid var(--border); color: var(--ink-muted); }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); counter-reset: step; }
+.step { position: relative; padding-top: 72px; }
+.step::before { counter-increment: step; content: counter(step); position: absolute; top: 24px; left: 28px; width: 32px; height: 32px; border: 2px solid var(--jaju); color: var(--jaju); font: 700 1rem/1 var(--font-display); display: flex; align-items: center; justify-content: center; }
+.path-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-weight: 600; }
+.path-line .arrow { color: var(--ink-muted); }
+.path-line .node { padding: 8px 16px; border-radius: var(--radius-s); background: var(--jaju-soft); color: var(--jaju-deep); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.6; background: var(--surface); }
 .data-table th, .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
-.data-table thead th { background: var(--jaju-light); color: var(--jaju); font-weight: 700; }
-.data-table tbody th { font-weight: 700; color: var(--navy); white-space: nowrap; }
-.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); }
-.pending { color: var(--sub); font-style: normal; background: var(--bg-soft); border: 1px dashed var(--border); border-radius: 8px; padding: 2px 10px; display: inline-block; }
+.data-table thead th { background: var(--jaju-soft); color: var(--jaju-deep); font-weight: 600; }
+.data-table tbody th { font-weight: 600; color: var(--ink); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 0; }
+.pending { color: var(--ink-muted); background: transparent; border: 1px dashed var(--border); border-radius: var(--radius-s); padding: 2px 10px; display: inline-block; }
 .tree-note { display: flex; gap: 14px; align-items: center; }
-.tree-note img { width: 28px; height: 28px; opacity: .7; flex-shrink: 0; }
+.tree-note img { width: 28px; height: 28px; flex-shrink: 0; }
+.org-label { font: 500 12px/1.4 var(--font-sans); letter-spacing: .06em; color: var(--namu); }
+
+/* 아래쪽 안내 띠 — 연자주 상자 + 자주 버튼 하나 */
+.theme-jaju .open-banner { background: var(--jaju-soft); color: var(--jaju-deep); border-radius: 0; }
+.theme-jaju .open-banner h3 { font-family: var(--font-display); font-weight: 600; }
+.theme-jaju .open-banner p { opacity: 1; }
+.theme-jaju .open-banner .btn { background: var(--jaju); color: var(--on-jaju); }
+
+/* 자주국어 푸터 — 정사각형 로고 + 바람나무숲 교육연구소(namu) */
+.theme-jaju .site-footer { background: var(--surface); color: var(--ink-muted); border-top: 1px solid var(--border); }
+.theme-jaju .footer-inner { align-items: flex-start; }
+.theme-jaju .site-footer .jaju-logo { --k: 28px; margin: 0 0 0 0; }
+.theme-jaju .footer-links a { color: var(--jaju); }
 
 /* 상담 신청 폼 */
 .jaju-form { display: grid; gap: 18px; }
 .jaju-form label.field { display: grid; gap: 6px; font-size: .9rem; font-weight: 600; }
 .jaju-form .req { color: var(--jaju); }
 .jaju-form input[type=text], .jaju-form input[type=tel], .jaju-form select, .jaju-form textarea {
-  width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 10px;
-  font: inherit; font-weight: 400; color: var(--navy); background: #fff;
+  width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-s);
+  font: inherit; font-weight: 400; color: var(--ink); background: var(--surface);
 }
 .jaju-form input:focus, .jaju-form select:focus, .jaju-form textarea:focus { outline: none; border-color: var(--jaju); }
 .jaju-form fieldset { border: none; display: grid; gap: 8px; }
 .jaju-form legend { font-size: .9rem; font-weight: 600; margin-bottom: 6px; }
 .choice-row { display: flex; flex-wrap: wrap; gap: 8px; }
-.choice-row label { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1.5px solid var(--border); border-radius: 20px; font-size: .88rem; cursor: pointer; }
-.choice-row input { accent-color: var(--jaju); }
-.agree-box { background: var(--bg-soft); border-radius: 10px; padding: 14px 16px; font-size: .82rem; color: var(--sub); }
-.agree-box label { display: flex; gap: 8px; align-items: center; margin-top: 10px; font-size: .9rem; font-weight: 600; color: var(--navy); }
-.agree-box input { accent-color: var(--jaju); width: 18px; height: 18px; }
-.jaju-form button[type=submit] { border: none; cursor: pointer; font: inherit; font-weight: 700; padding: 14px; border-radius: 12px; background: var(--jaju); color: #fff; font-size: 1rem; }
+.choice-row label { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-s); font-size: .88rem; cursor: pointer; }
+.choice-row input, .agree-box input { accent-color: var(--jaju); }
+.agree-box { background: var(--paper); border: 1px solid var(--border); padding: 14px 16px; font-size: 14px; line-height: 1.6; color: var(--ink-muted); }
+.agree-box label { display: flex; gap: 8px; align-items: center; margin-top: 10px; font-size: .9rem; font-weight: 600; color: var(--ink); }
+.agree-box input { width: 18px; height: 18px; }
+.jaju-form button[type=submit] { border: none; cursor: pointer; font: inherit; font-weight: 600; padding: 14px; border-radius: var(--radius-m); background: var(--jaju); color: var(--on-jaju); font-size: 1rem; }
 .jaju-form button[disabled] { opacity: .6; cursor: wait; }
 .form-msg { font-size: .9rem; color: var(--jaju); min-height: 1.4em; }
+/* 연락처 버튼 — 카카오톡 채널을 먼저 */
 .contact-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-.contact-buttons a { flex: 1 1 200px; text-align: center; padding: 14px 18px; border-radius: 12px; font-weight: 700; }
-.contact-buttons .tel { background: var(--jaju); color: #fff; }
-.contact-buttons .kakao { background: #FEE500; color: #191919; }
-.contact-buttons .is-disabled { background: var(--bg-soft); color: var(--sub); cursor: default; }
+.contact-buttons a { flex: 1 1 200px; text-align: center; padding: 14px 18px; border-radius: var(--radius-m); font-weight: 600; }
+.contact-buttons .kakao { background: var(--jaju); color: var(--on-jaju); }
+.contact-buttons .tel { background: transparent; color: var(--jaju); border: 1.5px solid var(--jaju); }
+.contact-buttons .is-disabled { background: transparent; color: var(--ink-muted); border: 1.5px dashed var(--border); cursor: default; }
 [hidden] { display: none !important; }
+
+@media (max-width: 900px) {
+  .jaju-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 460px) {
+  .jaju-hero .jaju-logo { --k: 40px; }
+  .jaju-banner .jaju-logo { --k: 38px; }
+  .manuscript { padding: var(--kan) 0; }
+  .manuscript .memo { padding: 0 10px; }
+}
 
 /* ── 반응형 ── */
 @media (max-width: 900px) {
@@ -396,7 +466,8 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
     display: block; margin-top: 8px; text-align: center; background: var(--teal);
     color: #fff; border-radius: 10px; font-weight: 700;
   }
-  .gnb .btn-app-mobile.btn-jaju-cta { background: var(--jaju); }
+  .gnb .btn-app-mobile.btn-jaju-cta { background: var(--jaju); color: var(--on-jaju); }
+  .theme-jaju .gnb { background: var(--paper); }
 }
 @media (max-width: 720px) {
   .gate-grid, .recent-grid, .grid-2 { grid-template-columns: 1fr; }
@@ -410,6 +481,5 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
 @media (max-width: 460px) {
   .values-grid, .grid-4 { grid-template-columns: 1fr; }
 }
-.theme-jaju .page-hero h1.jaju-promise-h1 { margin-top: 18px; letter-spacing: .08em; }
 .table-wrap .data-table { min-width: 540px; }
 .data-table tbody th { white-space: normal; min-width: 110px; }
