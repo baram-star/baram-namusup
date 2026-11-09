@@ -1,6 +1,11 @@
 {
   "redirects": [
-    { "source": "/daum.html", "destination": "/jaju/", "permanent": true },
-    { "source": "/daum", "destination": "/jaju/", "permanent": true }
+    { "source": "/jaju", "destination": "/", "permanent": true },
+    { "source": "/jaju/", "destination": "/", "permanent": true },
+    { "source": "/jaju/index.html", "destination": "/", "permanent": true },
+    { "source": "/jaju/:page(program|story|method|apply).html", "destination": "/:page.html", "permanent": true },
+    { "source": "/daum.html", "destination": "/", "permanent": true },
+    { "source": "/daum", "destination": "/", "permanent": true },
+    { "source": "/:page(about|academy|parents|journal|contact).html", "destination": "https://baram-connect.vercel.app/", "permanent": false }
   ]
 }

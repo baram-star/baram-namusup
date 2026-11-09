@@ -282,6 +282,10 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
 /* 자주 바탕 위에서는 단색 로고를 on-jaju 색으로 */
 .jaju-logo-mono.is-on-jaju { --c: var(--on-jaju); }
 
+/* 헤더 로고 (가로형, 작은 칸) */
+.jaju-logo-header { --k: 28px; margin: 0; }
+.theme-jaju .gnb a.btn-app-mobile { color: var(--on-jaju); }
+
 /* ── 홈 배너 — 자주 바탕(간판) + 단색 로고 ── */
 .jaju-banner { background: var(--jaju); color: var(--on-jaju); padding: 56px 0 64px; text-align: center; }
 .jaju-banner .jaju-logo { --k: 44px; }

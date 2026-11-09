@@ -1,14 +1,10 @@
 /* ══════════════════════════════════════════════
-   바람나무숲 홈페이지 — 설정값 (한 곳에서 관리)
+   자주국어 홈페이지 — 설정값 (한 곳에서 관리)
    ※ 공개 읽기 키만 넣습니다. 비밀 키는 절대 넣지 마세요.
    ══════════════════════════════════════════════ */
 
 const SITE = {
-  appUrl: 'https://baram-connect.vercel.app',
-  supabaseUrl: 'https://fgwuzbdopprzlkiyjhkm.supabase.co',
-  supabaseKey: 'sb_publishable_P9Nu1-xc7cdMDJ55MNHDUA_GHAVHdZd',
-  // 바람나무숲(비영리) Apps Script — 인문학교실·학부모교실용. 자주국어에는 쓰지 않습니다.
-  scriptUrl: 'https://script.google.com/macros/s/AKfycbxamYg-5tRQ435kAoWkStSpCOQ0l9Vch-s-1QoU-CoyhBr64p2dtGIX_-lKhZDLc_qF/exec',
+  appUrl: 'https://baram-connect.vercel.app',   // 바람나무숲 교육연구소 앱
 
   /* ── 자주국어(영리 교습소) 전용 — 자주국어 구글 계정으로 만든 뒤 값을 넣습니다 ──
      jajuSheetId   : 「자주국어 운영」 시트 ID (탭: 공지 · 개강일정 · 상담신청)
