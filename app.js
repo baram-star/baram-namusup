@@ -34,7 +34,7 @@ async function loadSheet(sheetId, tabName) {
   });
 }
 
-/* ── 자주국어: 개강 일정 (시트 「자주국어 운영」 › 개강일정 탭) ──
+/* ── 자주국어: 개강 일정 (시트 「자주국어 운영」 › 개강일정 탭, 열: 기간 · 시기 · 회차) ──
    시트 ID가 없거나 읽기 실패 시 HTML에 적힌 기본 표를 그대로 둡니다. */
 async function loadJajuSchedule() {
   const el = document.getElementById('jaju-schedule-body');
@@ -43,7 +43,7 @@ async function loadJajuSchedule() {
     const rows = await loadSheet(SITE.jajuSheetId, '개강일정');
     if (!rows.length) return;
     el.innerHTML = rows.map(r => `
-      <tr><th>${esc(r['과정'])}</th><td>${esc(r['대상'])}</td><td>${esc(r['개강'])}</td></tr>`).join('');
+      <tr><th>${esc(r['기간'])}</th><td>${esc(r['시기'])}</td><td>${esc(r['회차'])}</td></tr>`).join('');
   } catch (e) { /* 기본 표 유지 */ }
 }
 
