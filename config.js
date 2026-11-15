@@ -13,5 +13,5 @@ const SITE = {
   jajuSheetId: '',
   jajuScriptUrl: '',
   jajuPhone: '010-7207-9004',
-  jajuKakaoUrl: '',   // 자주국어 카카오채널 개설 후 주소 입력 (예: https://pf.kakao.com/_xxxx)
+  jajuKakaoUrl: 'https://pf.kakao.com/_qQZNX',   // 자주국어 카카오채널 개설 후 주소 입력 (예: https://pf.kakao.com/_xxxx)
 };

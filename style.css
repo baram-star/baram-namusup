@@ -511,3 +511,22 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
 }
 .table-wrap .data-table { min-width: 540px; }
 .data-table tbody th { white-space: normal; min-width: 110px; }
+
+/* ── v1.4 반영 블록 ── */
+.stats .big { font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--jaju); }
+.stats .card p { margin-top: 6px; }
+.art .big { font-size: 2.6rem; color: var(--jaju); line-height: 1; }
+.art .en { margin: 6px 0 10px; font: 500 12px/1.4 var(--font-sans); letter-spacing: .12em; color: var(--ink-muted); }
+.art p strong { color: var(--ink); font-weight: 600; }
+.center-text { text-align: center; margin-left: auto; margin-right: auto; margin-top: var(--space-6); }
+.note-box { margin-top: var(--space-6); padding: 16px 18px; background: var(--jaju-soft); color: var(--jaju-deep); font-size: .95rem; line-height: 1.7; }
+.memo-line { font: 400 clamp(24px, 4vw, 30px)/1.4 var(--font-hand); color: var(--namu); padding: var(--space-4) 0; border-top: 1px solid var(--kan-line); border-bottom: 1px solid var(--kan-line); }
+.road { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4); }
+.step-n .n { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border: 2px solid var(--jaju); color: var(--jaju); font: 700 1rem/1 var(--font-display); margin-bottom: 10px; }
+.step-n h3 { font-size: 17px; }
+.step-n .when { margin-top: 2px; font-size: 13px; color: var(--jaju); font-weight: 600; }
+.data-table.works td { min-width: 180px; }
+@media (max-width: 900px) { .road { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .road { grid-template-columns: 1fr; } }
+.table-wrap .data-table.year { min-width: 820px; }
+.data-table.year td:last-child { min-width: 300px; }
