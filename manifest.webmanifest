@@ -1,0 +1,16 @@
+{
+  "name": "자주국어",
+  "short_name": "자주국어",
+  "description": "자주국어 국어·독서·논술 수업 — 스스로 날마다 귀하게",
+  "lang": "ko",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#fcfafb",
+  "theme_color": "#7b2253",
+  "icons": [
+    { "src": "/img/jaju/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/img/jaju/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/img/jaju/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
