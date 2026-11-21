@@ -530,3 +530,21 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
 @media (max-width: 460px) { .road { grid-template-columns: 1fr; } }
 .table-wrap .data-table.year { min-width: 820px; }
 .data-table.year td:last-child { min-width: 300px; }
+
+/* 세 번 읽는 국어 (리플렛 11.21) */
+.jaju-hero .eyebrow { font-size: .95rem; font-weight: 600; color: var(--jaju); margin-bottom: 12px; }
+.jaju-hero .lead strong { font-weight: 700; color: var(--ink); }
+.reads { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; counter-reset: none; }
+.read { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 20px; border: 1.5px solid var(--kan-line); background: var(--surface); }
+.read .when { font-size: .88rem; font-weight: 700; color: var(--jaju); }
+.read strong { font: 700 1.3rem/1.3 var(--font-display); }
+.read .how { color: var(--ink-muted); }
+.read + .read::before { content: "→"; position: absolute; left: -28px; top: 50%; transform: translateY(-50%); color: var(--jaju); font-weight: 700; font-size: 1.2rem; }
+.reads + .sec-desc { margin-top: var(--space-6); }
+@media (max-width: 900px) {
+  .reads { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .read + .read::before { display: none; }
+}
+@media (max-width: 460px) { .reads { grid-template-columns: 1fr; } }
+.data-table.classes { min-width: 720px; }
+.data-table.classes th:first-child { white-space: nowrap; }
