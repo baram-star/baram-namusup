@@ -548,3 +548,10 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,120,11
 @media (max-width: 460px) { .reads { grid-template-columns: 1fr; } }
 .data-table.classes { min-width: 720px; }
 .data-table.classes th:first-child { white-space: nowrap; }
+.sub-head { margin: var(--space-6) 0 16px; padding-top: var(--space-6); border-top: 1px solid var(--border); font: 700 1.25rem/1.4 var(--font-sans); color: var(--ink); }
+.read-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.rd-item { padding: 20px; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--jaju); }
+.rd-item h4 { font: 700 1.05rem/1.45 var(--font-sans); color: var(--ink); }
+.rd-item h4 .when { display: block; margin-bottom: 4px; font-size: .85rem; font-weight: 600; color: var(--jaju); }
+.rd-item p { margin-top: 8px; font-size: 15px; line-height: 1.7; color: var(--ink-muted); }
+@media (max-width: 760px) { .read-detail { grid-template-columns: 1fr; } }
